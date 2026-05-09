@@ -1,0 +1,22 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "DeveloperProfile",
+	"Description": "Create and view Developer Profile assets",
+	"Category": "Tools",
+	"CreatedBy": "Jasmine Widgery",
+	"CanContainContent": true,
+	"Modules": [
+		{
+			"Name": "DeveloperProfile",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "DeveloperProfileEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}
