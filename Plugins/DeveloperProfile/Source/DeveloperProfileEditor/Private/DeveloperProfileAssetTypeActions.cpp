@@ -1,5 +1,17 @@
 ﻿#include "DeveloperProfileAssetTypeActions.h"
 #include "DeveloperProfileAsset.h"
+#include "DeveloperProfileEditorToolkit.h"
+
+void FDeveloperProfileAssetTypeActions::OpenAssetEditor(const TArray<UObject*>& InObjects,
+                                                        TSharedPtr<IToolkitHost> EditWithinLevelEditor)
+{
+	if (InObjects.IsEmpty())
+		return;
+	
+	TSharedRef<FDeveloperProfileEditorToolkit> EditorToolkit = MakeShareable(new FDeveloperProfileEditorToolkit());
+	if (UDeveloperProfileAsset* DeveloperProfile = Cast<UDeveloperProfileAsset>(InObjects[0]))
+		EditorToolkit->InitEditor(DeveloperProfile);
+}
 
 FText FDeveloperProfileAssetTypeActions::GetName() const
 {
