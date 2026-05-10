@@ -6,7 +6,7 @@ public class DeveloperProfileEditor : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[]
+		PrivateDependencyModuleNames.AddRange(new string[]
 		{
 			"Core",
 			"CoreUObject",
@@ -14,11 +14,11 @@ public class DeveloperProfileEditor : ModuleRules
 			"UnrealEd",
 			"Slate",
 			"SlateCore",
-			"EditorStyle",
 			"AssetTools",
 			"PropertyEditor",
-			"ToolMenus",
-			"DeveloperProfile"
+			"DeveloperProfile",
+			"AppFramework",
+			"InputCore"
 		});
 		
 	}

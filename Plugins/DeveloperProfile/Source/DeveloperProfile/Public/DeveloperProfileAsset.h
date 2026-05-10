@@ -4,6 +4,13 @@
 #include "UObject/NoExportTypes.h"
 #include "DeveloperProfileAsset.generated.h"
 
+UENUM(BlueprintType)
+enum class EProfileTheme : uint8
+{
+	TurtleRock UMETA(DisplayName = "Turtle Rock"),
+	Pastel     UMETA(DisplayName = "Pastel"),
+};
+
 UENUM()
 enum class ESkillType
 {
@@ -59,9 +66,6 @@ public:
 	FString Bio;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int32 YearsOfExperience;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TSoftObjectPtr<UTexture2D> Portrait;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
@@ -69,4 +73,7 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<FDeveloperSkill> Skills;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Appearance")
+	EProfileTheme Theme = EProfileTheme::TurtleRock;
 };

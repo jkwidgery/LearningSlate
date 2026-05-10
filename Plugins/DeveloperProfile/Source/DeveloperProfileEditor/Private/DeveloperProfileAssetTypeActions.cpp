@@ -9,6 +9,7 @@ void FDeveloperProfileAssetTypeActions::OpenAssetEditor(const TArray<UObject*>& 
 		return;
 	
 	TSharedRef<FDeveloperProfileEditorToolkit> EditorToolkit = MakeShareable(new FDeveloperProfileEditorToolkit());
+	//TODO: Add support for opening multiple assets
 	if (UDeveloperProfileAsset* DeveloperProfile = Cast<UDeveloperProfileAsset>(InObjects[0]))
 		EditorToolkit->InitEditor(DeveloperProfile);
 }

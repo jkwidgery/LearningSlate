@@ -1,6 +1,5 @@
 ﻿#include "DeveloperProfileEditorToolkit.h"
 
-#include "CallStackViewer.h"
 #include "DeveloperProfileCardWidget.h"
 
 const FName FDeveloperProfileEditorToolkit::ProfileCardTabID = "Profile Card";
@@ -80,7 +79,7 @@ FString FDeveloperProfileEditorToolkit::GetWorldCentricTabPrefix() const
 
 FLinearColor FDeveloperProfileEditorToolkit::GetWorldCentricTabColorScale() const
 {
-	return FLinearColor(138, 154, 91);// Green like a Turtle :) 
+	return FLinearColor(138.f/255.f, 154.f/255.f, 91.f/255.f);;// Green like a Turtle :) 
 }
 
 FText FDeveloperProfileEditorToolkit::GetToolkitName() const
