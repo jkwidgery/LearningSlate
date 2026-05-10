@@ -9,6 +9,8 @@ _Note all relevant source code can be found in Plugins/DeveloperProfile_
 
 The plugin introduces a **Developer Profile** asset — a UObject containing a developer's name, role, bio, contact info, portrait, and a list of skills with proficiency ratings. Double-clicking the asset opens a custom editor with two panels: a live-rendered profile card and a standard details view. Every change made in the details panel is reflected on the card in real time.
 
+<img width="2557" height="1392" alt="image" src="https://github.com/user-attachments/assets/2f73628b-415f-4bff-9c21-2c7493bad269" />
+
 Two visual themes are included — **Turtle Rock** (dark) and **Pastel** — and switching between them updates the entire card dynamically without reopening the asset.
 
 ---
