@@ -1,6 +1,7 @@
 ﻿#include "DeveloperProfileEditorToolkit.h"
 
 #include "CallStackViewer.h"
+#include "DeveloperProfileCardWidget.h"
 
 const FName FDeveloperProfileEditorToolkit::ProfileCardTabID = "Profile Card";
 const FName FDeveloperProfileEditorToolkit::DetailsTabID = "Details Panel";
@@ -26,6 +27,9 @@ void FDeveloperProfileEditorToolkit::InitEditor(UDeveloperProfileAsset* InAsset)
 		)
 	);
 	
+	FPropertyEditorModule& PropertyEditorModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
+	FDetailsViewArgs DetailsViewArgs;
+	DetailsView = PropertyEditorModule.CreateDetailView(DetailsViewArgs);
 
 	
 	InitAssetEditor(EToolkitMode::Standalone,
@@ -35,6 +39,9 @@ void FDeveloperProfileEditorToolkit::InitEditor(UDeveloperProfileAsset* InAsset)
 	true,
 	true,
 	Asset);
+	
+	DetailsView->SetObject(Asset);
+	
 }
 
 void FDeveloperProfileEditorToolkit::RegisterTabSpawners(const TSharedRef<FTabManager>& TabManagerRef)
@@ -87,10 +94,19 @@ FText FDeveloperProfileEditorToolkit::GetToolkitName() const
 
 TSharedRef<SDockTab> FDeveloperProfileEditorToolkit::OnSpawnProfileCardPanel(const FSpawnTabArgs& TabArgs)
 {
-	return SNew(SDockTab);
+	return SNew(SDockTab)
+		.TabRole(ETabRole::MajorTab)
+		[
+			SNew(SDeveloperProfileCardWidget)
+			.DeveloperProfileAsset(Asset)
+		];
 }
 
 TSharedRef<SDockTab> FDeveloperProfileEditorToolkit::OnSpawnDetailsPanel(const FSpawnTabArgs& TabArgs)
 {
-	return SNew(SDockTab);
+	return SNew(SDockTab)
+		.TabRole(ETabRole::PanelTab)
+		[
+			DetailsView.ToSharedRef()
+		];
 }
